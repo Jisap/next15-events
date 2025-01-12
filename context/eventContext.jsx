@@ -11,6 +11,23 @@ const EventProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState(null)
 
+  const[searchTerm, setSearchTerm] = useState("")
+  const [appliedFilters, setAppliedFilters] = useState({    // Filtro aplicado basado en el término de búsqueda: appliedFilters.searchTerm
+    searchTerm: ""
+  })
+
+  const filteredEvents = useMemo(() => {
+    return events.filter((event) => {                            // Itera sobre cada evento en la lista events.
+      const matchesSearch = appliedFilters.searchTerm            // Si contiene un valor appliedFilters.searchTerm
+        ? event.title                                            // se verifica si el title del evento 
+          .includes(appliedFilters.searchTerm.toLowerCase())     // incluye ese valor 
+          .toLowerCase()                                         // ignorando mayúsculas y minúsculas. 
+        : true                                                   // Si está vacío, no se aplica ningún filtro de búsqueda y el evento se incluye en los resultados
+      return matchesSearch
+    })
+
+  }, [events, appliedFilters])
+
   useEffect(() => {
     const fetchEvents = async () => {
       setIsLoading(true)
@@ -30,10 +47,30 @@ const EventProvider = ({ children }) => {
     }
 
     fetchEvents()
-  }, [])
+  }, []);
+
+  const handleSubmit = () => {
+    setAppliedFilters({ searchTerm })
+  }
+
+  const handleClearSearch = () => {
+    setSearchTerm("")
+    //setAppliedFilters({ searchTerm: "" })
+  }
 
   return (
-    <EventContext.Provider value={{ events }}>
+    <EventContext.Provider 
+      value={{ 
+        events, 
+        isLoading, 
+        error,
+        searchTerm, 
+        setSearchTerm, 
+        filteredEvents,
+        handleSubmit,
+        handleClearSearch, 
+      }}
+    >
       {children}
     </EventContext.Provider>
   )

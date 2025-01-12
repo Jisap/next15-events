@@ -36,3 +36,18 @@ body {
   @apply font-secondary text-4xl xl:text-[45px] leading-[110%] text-accent
 }
 
+.btn {
+  @apply min-w-[112px] h-[48px] rounded-full flex items-center justify-center text-sm font-medium transition-all
+}
+
+.btn-accent {
+  @apply bg-accent hover:bg-accent-hover
+}
+
+.btn-secondary {
+  @apply bg-secondary
+}
+
+.btn-tertiary {
+  @apply bg-tertiary hover:bg-tertiary-hover
+}

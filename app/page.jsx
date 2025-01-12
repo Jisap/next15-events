@@ -1,10 +1,15 @@
-import React from 'react'
+"use client"
+
+import React, { useContext } from 'react'
+import { EventContext } from '@/context/eventContext'
 
 const Home = () => {
+
+  const { events } =useContext(EventContext)
+console.log(events);
   return (
     <div>
-      <p className='pretitle'>Pretitle</p>
-      <h1 className='h1'>Heading 1</h1>
+      Home
     </div>
   )
 }

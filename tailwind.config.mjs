@@ -6,18 +6,44 @@ export default {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  theme: {
-  	extend: {
-  		colors: {
-  			background: 'var(--background)',
-  			foreground: 'var(--foreground)'
-  		},
-  		borderRadius: {
-  			lg: 'var(--radius)',
-  			md: 'calc(var(--radius) - 2px)',
-  			sm: 'calc(var(--radius) - 4px)'
-  		}
-  	}
+  theme: {	
+  		container:{
+				center: true,
+				padding: '15px',
+			},
+			screens:{
+				sm: "540px",
+				md: "768px",
+				lg: "1024px",
+				xl: "1310px",
+			},
+			fontFamily:{
+				primary: "var(--font-poppins)",
+				secondary: "var(--font-caveat)",
+			},
+			extend: {
+				colors:{
+					primary: "#0f1017",
+					accent: {
+						DEFAULT: "#e14817",
+						hover: "#cb4419",
+					},
+					secondary: {
+						DEFAULT: "#1b1c23",
+						hover: "#1f212d",
+					},
+					tertiary: {
+						DEFAULT: "#26272e",
+						hover: "#24252c",
+					},
+					grey: "#737373",
+				},
+				backgroundImage: {
+					hero_bg1: "url(/assets/hero_bg1.png)",
+					hero_bg2: "url(/assets/hero_bg2.png)",
+					pattern: "url(/assets/pattern_bg.png)",
+				},
+			},
   },
   plugins: [require("tailwindcss-animate")],
 };

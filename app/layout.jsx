@@ -1,6 +1,7 @@
 import { Poppins, Caveat } from "next/font/google";
 import "./globals.css";
-import EventProvider from "@/context/eventContext";
+import EventProvider from "../context/EventContext";
+
 
 export const metadata = {
   title: "Create Next App",

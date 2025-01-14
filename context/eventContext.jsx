@@ -16,12 +16,12 @@ const EventProvider = ({ children }) => {
     searchTerm: ""
   })
 
-  const filteredEvents = useMemo(() => {
+  const filteredEvents = useMemo(() => { 
     return events.filter((event) => {                            // Itera sobre cada evento en la lista events.
       const matchesSearch = appliedFilters.searchTerm            // Si contiene un valor appliedFilters.searchTerm
         ? event.title                                            // se verifica si el title del evento 
-          .includes(appliedFilters.searchTerm.toLowerCase())     // incluye ese valor 
           .toLowerCase()                                         // ignorando mayúsculas y minúsculas. 
+          .includes(appliedFilters.searchTerm.toLowerCase())     // incluye ese valor 
         : true                                                   // Si está vacío, no se aplica ningún filtro de búsqueda y el evento se incluye en los resultados
       return matchesSearch
     })
@@ -51,6 +51,7 @@ const EventProvider = ({ children }) => {
 
   const handleSubmit = () => {
     setAppliedFilters({ searchTerm })
+    console.log(filteredEvents);
   }
 
   const handleClearSearch = () => {

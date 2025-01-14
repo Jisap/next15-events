@@ -50,8 +50,11 @@ const EventProvider = ({ children }) => {
   }, []);
 
   const handleSubmit = () => {
+    setIsLoading(true)
     setAppliedFilters({ searchTerm })
-    console.log(filteredEvents);
+    setTimeout(() => {
+      setIsLoading(false)
+    }, 2500)
   }
 
   const handleClearSearch = () => {

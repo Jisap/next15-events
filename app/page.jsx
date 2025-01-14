@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <div>
       <Searchbar />
-      <div>
+      <div className="container mx-auto">
         <EventList />
       </div>
     </div>

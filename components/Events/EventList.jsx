@@ -27,13 +27,15 @@ const EventList = () => {
   }else{
     return (
       <div>
-        {filteredEvents.map((event, index) => {
-          return (
-            <div key={index}>
-              <Event event={event} /> 
-            </div>
-          )
-        })}
+        <div className="grid grid-cols-1 xl:grid-cols-4 gap-[30px] mb-32">
+          {filteredEvents.map((event, index) => {
+            return (
+              <div key={index}>
+                <Event event={event} /> 
+              </div>
+            )
+          })}
+        </div>
       </div>
     )
   }

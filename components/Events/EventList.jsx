@@ -1,6 +1,7 @@
 import { useContext } from "react"
 import { EventContext } from "@/context/EventContext"
 import Event from "./Event"
+import SkeletonGrid from "../SkeletonGrid"
 
 
 
@@ -8,6 +9,7 @@ import Event from "./Event"
 const EventList = () => {
 
   const { filteredEvents, isLoading, error } = useContext(EventContext)
+  //console.log(filteredEvents.length);
   if(error) return <p>Error: {error}</p>
 
   if(filteredEvents.length === 0 && !isLoading){
@@ -20,9 +22,7 @@ const EventList = () => {
 
   if(isLoading){
     return(
-      <div>
-        loading
-      </div>
+      <SkeletonGrid itemCount={filteredEvents.length} />
     )
   }else{
     return (

@@ -1,7 +1,18 @@
 
 
-import { EventContext } from '@/context/EventContext'
 import React, { useContext } from 'react'
+import { EventContext } from '@/context/EventContext'
+import { 
+  Select, 
+  SelectContent, 
+  SelectGroup, 
+  SelectItem, 
+  SelectLabel, 
+  SelectTrigger, 
+  SelectValue 
+} from '../ui/select';
+
+
 
 const EventLocation = () => {
 
@@ -31,12 +42,30 @@ const EventLocation = () => {
     )
   ]
 
-  console.log(uniqueLocations);
+
 
    return (
-    <div>
-      EventLocation
-    </div>
+    <Select 
+      value={selectedLocation}
+      onValueChange={(value) => setSelectedLocation(value)}
+    >
+      <SelectTrigger>
+        <SelectValue placeholder="Event location" />
+      </SelectTrigger>
+      <SelectContent>
+        <SelectGroup>
+          <SelectLabel>Location</SelectLabel>
+          {uniqueLocations.map((location, index) => (
+            <SelectItem 
+              key={index} 
+              value={location === "All locations" ? null : location}
+            >
+              {location}
+            </SelectItem>
+          ))}
+        </SelectGroup>
+      </SelectContent>
+    </Select>
   )
 }
 

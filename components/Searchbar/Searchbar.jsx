@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import EventSearch from './EventSearch'
 import { EventContext } from '../../context/EventContext'
+import EventLocation from './EventLocation'
 
 
 
@@ -15,9 +16,7 @@ const Searchbar = () => {
         <EventSearch />
       </div>
       {/* event location */}
-      <div>
-        Event Location
-      </div>
+      <EventLocation />
       {/* event date */}
       <div>
         Event Date

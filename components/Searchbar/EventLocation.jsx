@@ -11,8 +11,10 @@ import {
   SelectTrigger, 
   SelectValue 
 } from '../ui/select';
+import { BiMap } from 'react-icons/bi';
 
 
+// Componente que establece el filtro de ubicación de los eventos.
 
 const EventLocation = () => {
 
@@ -45,27 +47,33 @@ const EventLocation = () => {
 
 
    return (
-    <Select 
-      value={selectedLocation}
-      onValueChange={(value) => setSelectedLocation(value)}
-    >
-      <SelectTrigger>
-        <SelectValue placeholder="Event location" />
-      </SelectTrigger>
-      <SelectContent>
-        <SelectGroup>
-          <SelectLabel>Location</SelectLabel>
-          {uniqueLocations.map((location, index) => (
-            <SelectItem 
-              key={index} 
-              value={location === "All locations" ? null : location}
-            >
-              {location}
-            </SelectItem>
-          ))}
-        </SelectGroup>
-      </SelectContent>
-    </Select>
+    <div className='flex items-center gap-[10px] w-full xl:w-[190px] select-none'>
+      <div className='text-accent text-lg'>
+        <BiMap />
+      </div>
+      <Select 
+        value={selectedLocation}
+        onValueChange={(value) => setSelectedLocation(value)}
+        className="justify-center"
+      >
+        <SelectTrigger className="bg-transparent border-none focus:ring-0 focus:ring-offset-0">
+          <SelectValue placeholder="Event location" />
+        </SelectTrigger>
+        <SelectContent>
+          <SelectGroup>
+            <SelectLabel>Location</SelectLabel>
+            {uniqueLocations.map((location, index) => (
+              <SelectItem 
+                key={index} 
+                value={location === "All locations" ? null : location}
+              >
+                {location}
+              </SelectItem>
+            ))}
+          </SelectGroup>
+        </SelectContent>
+      </Select>
+    </div>
   )
 }
 

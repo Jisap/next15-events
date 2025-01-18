@@ -22,13 +22,22 @@ const EventProvider = ({ children }) => {
 
   const filteredEvents = useMemo(() => { 
     return events.filter((event) => {                            // Itera sobre cada evento en la lista events.
+      
+      //Filtro por searchTerm
       const matchesSearch = appliedFilters.searchTerm            // Si contiene un valor appliedFilters.searchTerm
         ? event.title                                            // se verifica si el title del evento 
           .toLowerCase()                                         // ignorando mayúsculas y minúsculas. 
           .includes(appliedFilters.searchTerm.toLowerCase())     // incluye ese valor 
         : true                                                   // Si está vacío, no se aplica ningún filtro de búsqueda y el evento se incluye en los resultados
-      return matchesSearch
-    })
+      
+      // Filtro por selectedLocation
+      const matchesLocation = appliedFilters.selectedLocation               // Si contiene un valor appliedFilters.selectedLocation
+        ? event.location                                                    // se verifica si el location del evento
+          .toLowerCase() === appliedFilters.selectedLocation.toLowerCase()  // coincide con el valor aplicado en el select
+        : true                                                              // Si está vacío, no se aplica ningún filtro de búsqueda y el evento se incluye en los resultados
+      
+      return matchesSearch && matchesLocation                    // Si ambos filtros se cumplen, el evento se incluye en los resultados.
+    });
 
   }, [events, appliedFilters])
 
@@ -56,7 +65,7 @@ const EventProvider = ({ children }) => {
   const handleSubmit = () => {
     setIsLoading(true);
     setShowEventList(true);
-    setAppliedFilters({ searchTerm, selectedLocation })
+    setAppliedFilters({ searchTerm, selectedLocation }) // Se reciben desde <EventSearch /> y <EventLocation /> -> filteredEvents -> EventList
     setTimeout(() => {
       setIsLoading(false)
     }, 2500)

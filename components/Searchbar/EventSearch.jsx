@@ -3,6 +3,7 @@ import { Input } from '../ui/input'
 import { EventContext } from '@/context/EventContext'
 import { BiSearch } from 'react-icons/bi'
 
+// Componente que establece el filtro de búsqueda de los eventos.
 
 const EventSearch = () => {
 

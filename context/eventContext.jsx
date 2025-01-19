@@ -11,12 +11,14 @@ const EventProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState(null);
   const [showEventList, setShowEventList] = useState(false);
-  const [selectedLocation, setSelectedLocation] = useState("")
+  const [selectedLocation, setSelectedLocation] = useState("");
+  const [selectedDate, setSelectedDate] = useState(null);
 
   const[searchTerm, setSearchTerm] = useState("")
-  const [appliedFilters, setAppliedFilters] = useState({    // Filtro aplicado basado en el término de búsqueda: appliedFilters.searchTerm
+  const [appliedFilters, setAppliedFilters] = useState({    // Filtro aplicado basado en el término de búsqueda: appliedFilters.searchTerm, etc
     searchTerm: "",
     selectedLocation: "",
+    selectedDate: null,
   });
 
 
@@ -65,7 +67,7 @@ const EventProvider = ({ children }) => {
   const handleSubmit = () => {
     setIsLoading(true);
     setShowEventList(true);
-    setAppliedFilters({ searchTerm, selectedLocation }) // Se reciben desde <EventSearch /> y <EventLocation /> -> filteredEvents -> EventList
+    setAppliedFilters({ searchTerm, selectedLocation, selectedDate }) // Se reciben desde <EventSearch /> ,<EventLocation />, <EventDate /> -> filteredEvents -> EventList
     setTimeout(() => {
       setIsLoading(false)
     }, 2500)
@@ -75,6 +77,7 @@ const EventProvider = ({ children }) => {
     setSearchTerm("")
     setShowEventList(false)
     setSelectedLocation("")
+    setSelectedDate(null)
   }
 
   return (
@@ -90,7 +93,9 @@ const EventProvider = ({ children }) => {
         handleClearSearch, 
         showEventList,
         selectedLocation,
-        setSelectedLocation
+        setSelectedLocation,
+        selectedDate,
+        setSelectedDate,
       }}
     >
       {children}

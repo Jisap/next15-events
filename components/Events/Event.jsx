@@ -23,7 +23,7 @@ const Event = ({ event }) => {
           <div className="flex items-center gap-3 text-accent mb-2">
             <div className="flex items-center gap-1">
               <BiCalendar />
-              <div className="text-[15px]">15.06.25</div>
+              <div className="text-[15px]">{event.date}</div>
             </div>
             <div className="flex items-center gap-1">
               <BiTime />

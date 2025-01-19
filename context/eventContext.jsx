@@ -1,5 +1,6 @@
 "use client"
 
+import { isSameDay } from 'date-fns';
 import React, { createContext, useEffect, useState, useMemo } from 'react'
 
 
@@ -44,7 +45,7 @@ const EventProvider = ({ children }) => {
 
       // Filtro por selectedDate
       const matchesDate = appliedFilters.selectedDate                                            // Si contiene un valor appliedFilters.selectedDate
-        ? eventDate.toDateString() === new Date(appliedFilters.selectedDate).toDateString()      // se verifica si el date del evento iterado coincide con el valor aplicado en el select
+        ? eventDate.toDateString() === new Date(appliedFilters.selectedDate).toDateString()      // se verifica si el date del evento iterado coincide con el valor aplicado en el selectedDate
         : true                                                                                   // Si está vacío, no se aplica ningún filtro de búsqueda y el evento se incluye en los resultados
 
       return matchesSearch && matchesLocation && matchesDate                    // Si los tres filtros se cumplen, el evento se incluye en los resultados.

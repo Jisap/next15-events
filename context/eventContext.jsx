@@ -21,10 +21,14 @@ const EventProvider = ({ children }) => {
     selectedDate: null,
   });
 
-
   const filteredEvents = useMemo(() => { 
+    const today = new Date();
+    
     return events.filter((event) => {                            // Itera sobre cada evento en la lista events.
       
+      const eventDate = new Date(event.date);
+      if(eventDate < today) return false;                        // Si el evento es anterior a la fecha actual, se excluye del resultado.
+
       //Filtro por searchTerm
       const matchesSearch = appliedFilters.searchTerm            // Si contiene un valor appliedFilters.searchTerm
         ? event.title                                            // se verifica si el title del evento 
@@ -37,8 +41,13 @@ const EventProvider = ({ children }) => {
         ? event.location                                                    // se verifica si el location del evento
           .toLowerCase() === appliedFilters.selectedLocation.toLowerCase()  // coincide con el valor aplicado en el select
         : true                                                              // Si está vacío, no se aplica ningún filtro de búsqueda y el evento se incluye en los resultados
-      
-      return matchesSearch && matchesLocation                    // Si ambos filtros se cumplen, el evento se incluye en los resultados.
+
+      // Filtro por selectedDate
+      const matchesDate = appliedFilters.selectedDate                                            // Si contiene un valor appliedFilters.selectedDate
+        ? eventDate.toDateString() === new Date(appliedFilters.selectedDate).toDateString()      // se verifica si el date del evento iterado coincide con el valor aplicado en el select
+        : true                                                                                   // Si está vacío, no se aplica ningún filtro de búsqueda y el evento se incluye en los resultados
+
+      return matchesSearch && matchesLocation && matchesDate                    // Si los tres filtros se cumplen, el evento se incluye en los resultados.
     });
 
   }, [events, appliedFilters])

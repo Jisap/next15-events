@@ -50,7 +50,13 @@ const EventProvider = ({ children }) => {
         ? eventDate.toDateString() === new Date(appliedFilters.selectedDate).toDateString()      // se verifica si el date del evento iterado coincide con el valor aplicado en el selectedDate
         : true                                                                                   // Si está vacío, no se aplica ningún filtro de búsqueda y el evento se incluye en los resultados
 
-      return matchesSearch && matchesLocation && matchesDate                    // Si los tres filtros se cumplen, el evento se incluye en los resultados.
+      // Filtro por selectedType
+      const matchesType = appliedFilters.selectedType                                            // Si contiene un valor appliedFilters.selectedType
+        ? event.type.toLowerCase() === appliedFilters.selectedType.toLowerCase()                 // se verifica si el type del evento iterado coincide con el valor aplicado en el selectedType
+        : true                                                                                   // Si está vacío, no se aplica ningún filtro de búsqueda y el evento se incluye en los resultados
+      
+      
+        return matchesSearch && matchesLocation && matchesDate && matchesType                   // Se devuelven los eventos con los filtros aplicados
     });
 
   }, [events, appliedFilters])

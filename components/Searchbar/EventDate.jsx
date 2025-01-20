@@ -25,7 +25,7 @@ const EventDate = () => {
       </div>
       <Popover>
         <PopoverTrigger asChild>
-          <Button className="w-full justify-start p-0 bg-transparent hover:bg-transparent">
+          <Button className="w-full justify-start p-0 bg-transparent hover:bg-transparent border-none shadow-none">
             {selectedDate ? (
               format(selectedDate, "PPP")
             ):(

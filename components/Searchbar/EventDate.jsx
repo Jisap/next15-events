@@ -25,15 +25,18 @@ const EventDate = () => {
       </div>
       <Popover>
         <PopoverTrigger asChild>
-          <Button className="w-full justify-start p-0 bg-transparent hover:bg-transparent border-none shadow-none">
+          <Button className="w-full justify-start p-0 bg-transparent hover:bg-transparent border-none shadow-none relative">
             {selectedDate ? (
               format(selectedDate, "PPP")
             ):(
               <span>Pick a date</span>
             )}
+            <div className="absolute top-2 -right-[0.75px]">
+              <BiChevronDown className="size-6" />
+            </div>
           </Button>
         </PopoverTrigger>
-        <PopoverContent className="w-auto bg-secondary border-0 text-white">
+        <PopoverContent className="w-auto p-0 bg-secondary border-0 text-white">
           <Calendar 
             mode="single" 
             selected={selectedDate} 
@@ -41,9 +44,7 @@ const EventDate = () => {
             initialFocus
           />
         </PopoverContent>
-        <div className="text-[26px] mr-2">
-          <BiChevronDown />
-        </div>
+        
       </Popover>
     </div>
   )

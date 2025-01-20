@@ -48,7 +48,7 @@ const EventLocation = () => {
 
    return (
     <div className='flex items-center gap-[10px] w-full xl:w-[190px] select-none'>
-      <div className='text-accent text-lg'>
+      <div className='text-accent text-lg mr-3'>
         <BiMap />
       </div>
       <Select 
@@ -56,7 +56,7 @@ const EventLocation = () => {
         onValueChange={(value) => setSelectedLocation(value)}
         className="justify-center"
       >
-        <SelectTrigger className="bg-transparent border-none focus:ring-0 focus:ring-offset-0">
+        <SelectTrigger className="bg-transparent border-none focus:ring-0 p-0 focus:ring-offset-0">
           <SelectValue placeholder="Event location" />
         </SelectTrigger>
         <SelectContent>

@@ -14,12 +14,14 @@ const EventProvider = ({ children }) => {
   const [showEventList, setShowEventList] = useState(false);
   const [selectedLocation, setSelectedLocation] = useState("");
   const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedType, setSelectedType] = useState("");
 
   const[searchTerm, setSearchTerm] = useState("")
   const [appliedFilters, setAppliedFilters] = useState({    // Filtro aplicado basado en el término de búsqueda: appliedFilters.searchTerm, etc
     searchTerm: "",
     selectedLocation: "",
     selectedDate: null,
+    selectedType: "",
   });
 
   const filteredEvents = useMemo(() => { 
@@ -77,7 +79,12 @@ const EventProvider = ({ children }) => {
   const handleSubmit = () => {
     setIsLoading(true);
     setShowEventList(true);
-    setAppliedFilters({ searchTerm, selectedLocation, selectedDate }) // Se reciben desde <EventSearch /> ,<EventLocation />, <EventDate /> -> filteredEvents -> EventList
+    setAppliedFilters({ 
+      searchTerm, 
+      selectedLocation, 
+      selectedDate, 
+      selectedType 
+    }) // Se reciben desde <EventSearch /> ,<EventLocation />, <EventDate />, <EventType /> -> filteredEvents -> EventList
     setTimeout(() => {
       setIsLoading(false)
     }, 2500)
@@ -88,6 +95,7 @@ const EventProvider = ({ children }) => {
     setShowEventList(false)
     setSelectedLocation("")
     setSelectedDate(null)
+    setSelectedType("")
   }
 
   return (
@@ -106,6 +114,8 @@ const EventProvider = ({ children }) => {
         setSelectedLocation,
         selectedDate,
         setSelectedDate,
+        selectedType,
+        setSelectedType,
       }}
     >
       {children}

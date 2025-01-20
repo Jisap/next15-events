@@ -3,6 +3,7 @@ import EventSearch from './EventSearch'
 import { EventContext } from '../../context/EventContext'
 import EventLocation from './EventLocation'
 import EventDate from './EventDate'
+import EventType from './EventType'
 
 
 
@@ -19,9 +20,7 @@ const Searchbar = () => {
       {/* event date */}
       <EventDate />
       {/* event type */}
-      <div>
-        Event Type
-      </div>
+      <EventType />
       {/* submit btn */}
       <button 
         onClick={handleSubmit}  

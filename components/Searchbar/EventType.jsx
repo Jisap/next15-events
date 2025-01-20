@@ -27,11 +27,11 @@ const EventType = () => {
               <BiLayer />
             </div>
             <Select 
-              value={selectedType}
+              value={selectedType ?? null}
               onValueChange={(value) => setSelectedType(value)}
               className="justify-center"
             >
-              <SelectTrigger className="bg-transparent border-none focus:ring-0 focus:ring-offset-0">
+              <SelectTrigger className="bg-transparent border-none focus:ring-0 focus:ring-offset-0 p-0 capitalize">
                 <SelectValue placeholder="Event Type" />
               </SelectTrigger>
               <SelectContent>
@@ -41,6 +41,7 @@ const EventType = () => {
                     <SelectItem 
                       key={index} 
                       value={type === "All type" ? null : type}
+                      className="capitalize"
                     >
                       {type}
                     </SelectItem>

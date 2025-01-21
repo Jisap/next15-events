@@ -8,7 +8,7 @@ const Hero = () => {
 
   return (
     <section className='h-screen xl:h-[800px] mb-16 relative'>
-      <div className='container mx-auto'>
+      <div className='container mx-auto h-full flex flex-col justify-center items-center pt-12 xl:pt-0'>
         <div className='w-full max-w-[684px] text-center mx-auto flex flex-col gap-2'>
           <div className='pretitle'>
             Uncover New moments
@@ -28,7 +28,7 @@ const Hero = () => {
               Please select at least one field or leave then empty to see all events
             </p>
             <button
-              className="text-accent"
+              className="text-accent text-sm xl:absolute right-0"
               onClick={() => handleClearSearch()}
             >
               clear search

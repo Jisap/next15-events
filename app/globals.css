@@ -7,6 +7,10 @@ body {
   @apply bg-primary text-white font-primary;
 }
 
+/* p {
+  @apply font-primary text-white text-base
+} */
+
 .h1,
 .h2,
 .h3,
@@ -17,7 +21,7 @@ body {
 }
 
 .h1 {
-  @apply text-4xl xl:text-[70px] font-bold xl:leading-[78px] uppercase;
+  @apply text-4xl xl:text-[70px] font-bold xl:leading-[78px] uppercase text-white;
 }
 
 .h2 {

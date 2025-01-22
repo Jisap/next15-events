@@ -45,9 +45,26 @@ console.log(filteredEvents);
       {/* slider */}
       {filteredEvents.length > 0 
         ? (
-          <Swiper>
+          <Swiper 
+            slidesPerView={1}
+            spaceBetween={30}
+            pagination={{ 
+              dynamicBullets: true,
+              clickable: true 
+            }}
+            breakpoints={{
+              640: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 },
+              1310: { slidesPerView: 4 },
+            }}
+            modules={[Pagination]}
+            className="w-full h-[500px]"
+          >
             {filteredEvents.map((event, index) => (
-              <SwiperSlide key={index}>
+              <SwiperSlide 
+                key={index}
+                className="select-none"
+              >
                 <Link href="">
                   <Event event={event} />
                 </Link>

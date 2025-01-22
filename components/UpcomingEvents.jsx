@@ -27,20 +27,40 @@ const UpcomingEvents = () => {
         const result = events.filter(event => event.type === eventValue) // Si no, devolver los eventos que coincidan con el valor del filtro
         setFilteredEvents(result)
       }
-      filterEvents()
     }
+    filterEvents()
   }, [events, eventValue]);
-
+console.log(filteredEvents);
   return (
-    <Tabs>
-      <TabsList>
-        <TabsTrigger value="all">All</TabsTrigger>
-        <TabsTrigger value="sport">Sport</TabsTrigger>
-        <TabsTrigger value="music">Music</TabsTrigger>
-        <TabsTrigger value="food">Food</TabsTrigger>
-        <TabsTrigger value="art">Art</TabsTrigger>
-      </TabsList>
-    </Tabs>
+    <section>
+      <Tabs value={eventValue} onValueChange={setEventValue}>
+        <TabsList>
+          <TabsTrigger value="all">All</TabsTrigger>
+          <TabsTrigger value="sport">Sport</TabsTrigger>
+          <TabsTrigger value="music">Music</TabsTrigger>
+          <TabsTrigger value="food">Food</TabsTrigger>
+          <TabsTrigger value="art">Art</TabsTrigger>
+        </TabsList>
+      </Tabs>
+      {/* slider */}
+      {filteredEvents.length > 0 
+        ? (
+          <Swiper>
+            {filteredEvents.map((event, index) => (
+              <SwiperSlide key={index}>
+                <Link href="">
+                  <Event event={event} />
+                </Link>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+          ) 
+          : 
+          (
+            <SkeletonGrid itemCount={4} />
+          )
+      }
+    </section>
   )
 }
 

@@ -30,18 +30,38 @@ const UpcomingEvents = () => {
     }
     filterEvents()
   }, [events, eventValue]);
-console.log(filteredEvents);
+
   return (
-    <section>
-      <Tabs value={eventValue} onValueChange={setEventValue}>
-        <TabsList>
-          <TabsTrigger value="all">All</TabsTrigger>
-          <TabsTrigger value="sport">Sport</TabsTrigger>
-          <TabsTrigger value="music">Music</TabsTrigger>
-          <TabsTrigger value="food">Food</TabsTrigger>
-          <TabsTrigger value="art">Art</TabsTrigger>
-        </TabsList>
-      </Tabs>
+    <section className="mb-16">
+      <div className="mb-12 text-center">
+        <h3 className="pretitle">Upcoming</h3>
+        <h2 className="h2">Popular Events</h2>
+      </div>
+      <div className="flex flex-col xl:flex-row items-center justify-between mb-12">
+        <Tabs 
+          value={eventValue} 
+          onValueChange={setEventValue}
+          className="bg-none w-full max-w-[600px] h-full flex justify-center items-center mb-12 xl:mb-0"  
+        >
+          <TabsList className="flex flex-col lg:flex-row gap-6 bg-transparent w-full h-full ">
+            <TabsTrigger value="all">
+              All
+            </TabsTrigger>
+            <TabsTrigger value="sport">
+              Sport
+            </TabsTrigger>
+            <TabsTrigger value="music">
+              Music
+            </TabsTrigger>
+            <TabsTrigger value="food">
+              Food
+            </TabsTrigger>
+            <TabsTrigger value="art">
+              Art
+            </TabsTrigger>
+          </TabsList>
+        </Tabs>
+      </div>
       {/* slider */}
       {filteredEvents.length > 0 
         ? (

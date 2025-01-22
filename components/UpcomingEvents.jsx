@@ -4,7 +4,7 @@ import { EventContext } from "@/context/EventContext"
 import { useContext, useEffect, useState } from "react"
 import { Swiper, SwiperSlide } from "swiper/react"
 import "swiper/css"
-import "swiper/css/navigation"
+import "swiper/css/pagination"
 import { Pagination } from "swiper/modules"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import Event from "./Events/Event"
@@ -48,19 +48,28 @@ const UpcomingEvents = () => {
               All
             </TabsTrigger>
             <TabsTrigger value="sport">
+              <Image src={"/assets/upcoming/sport.svg"} alt="" width={18} height={18} />
               Sport
             </TabsTrigger>
             <TabsTrigger value="music">
+              <Image src={"/assets/upcoming/music.svg"} alt="" width={18} height={18} />
               Music
             </TabsTrigger>
             <TabsTrigger value="food">
+              <Image src={"/assets/upcoming/food.svg"} alt="" width={18} height={18} />
               Food
             </TabsTrigger>
             <TabsTrigger value="art">
+              <Image src={"/assets/upcoming/art.svg"} alt="" width={18} height={18} />
               Art
             </TabsTrigger>
           </TabsList>
         </Tabs>
+
+        <Link href={""} className="uppercase border-b-2 border-accent text-sm font-semibold text-accent">
+          See all events
+        </Link>
+
       </div>
       {/* slider */}
       {filteredEvents.length > 0 

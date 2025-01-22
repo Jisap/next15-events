@@ -55,3 +55,8 @@ body {
 .btn-tertiary {
   @apply bg-tertiary hover:bg-tertiary-hover
 }
+
+.swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
+.swiper-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+  @apply bg-accent
+}

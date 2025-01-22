@@ -3,6 +3,7 @@
 import EventList from "@/components/Events/EventList"
 import Hero from "@/components/Hero"
 import Searchbar from "@/components/Searchbar/searchbar"
+import UpcomingEvents from "@/components/UpcomingEvents"
 import { EventContext } from "@/context/EventContext"
 import { useContext } from "react"
 
@@ -24,9 +25,7 @@ const { showEventList } = useContext(EventContext);
       ) : (
         <div>
           <div className="container mx-auto">
-            <div>
-              upcoming events slider
-            </div>
+            <UpcomingEvents />
             <div>
               donwnload app section
             </div>

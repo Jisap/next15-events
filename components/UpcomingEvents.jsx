@@ -1,0 +1,47 @@
+"use client"
+
+import { EventContext } from "@/context/EventContext"
+import { useContext, useEffect, useState } from "react"
+import { Swiper, SwiperSlide } from "swiper/react"
+import "swiper/css"
+import "swiper/css/navigation"
+import { Pagination } from "swiper/modules"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import Event from "./Events/Event"
+import Link from "next/link"
+import Image from "next/image"
+import SkeletonGrid from "./SkeletonGrid"
+
+
+const UpcomingEvents = () => {
+
+  const { events } = useContext(EventContext);
+  const [eventValue, setEventValue] = useState("all");
+  const [filteredEvents, setFilteredEvents] = useState([]);
+
+  useEffect(() => {
+    const filterEvents = () => {
+      if(eventValue === "all") {          // Si el valor del filtro es "all" 
+        setFilteredEvents(events)         // devolver todos los eventos
+      }else{
+        const result = events.filter(event => event.type === eventValue) // Si no, devolver los eventos que coincidan con el valor del filtro
+        setFilteredEvents(result)
+      }
+      filterEvents()
+    }
+  }, [events, eventValue]);
+
+  return (
+    <Tabs>
+      <TabsList>
+        <TabsTrigger value="all">All</TabsTrigger>
+        <TabsTrigger value="sport">Sport</TabsTrigger>
+        <TabsTrigger value="music">Music</TabsTrigger>
+        <TabsTrigger value="food">Food</TabsTrigger>
+        <TabsTrigger value="art">Art</TabsTrigger>
+      </TabsList>
+    </Tabs>
+  )
+}
+
+export default UpcomingEvents

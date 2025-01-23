@@ -29,8 +29,23 @@ const Footer = () => {
   return (
     <footer className="bg-accent bg-pattern bg-cover bg-blend-multiply pt-16">
       <div className="container mx-auto border-b border-white/40">
-        <div>
-          text & socials
+        <div className="flex flex-col max-w-[550px] mx-auto text-center">
+         <div className="mb-9">
+          <h2 className="h2 mb-3">Your Event Connection</h2>
+          <p>Join our list for exclusice event updates and insider tips.</p>
+         </div>
+
+         <form 
+          className="relative flex items-center mb-16"
+         >
+          <input 
+            type="text" 
+             placeholder="Enter your email"
+             className="pl-8 w-full h-[60px] rounded-full outline-none placeholder:text-primary/80 text-primary text-sm"
+            />
+         </form>
+
+         <div className="mb-[72px]">socials</div>  
         </div>
       </div>
       <div className="py-8">

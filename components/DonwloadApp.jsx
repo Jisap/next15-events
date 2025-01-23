@@ -27,7 +27,7 @@ const DonwloadApp = () => {
               className="object-contain"
             />
           </Link>
-          <Link href="/" className="relative flex w-[192px] h-[64px]">
+          <Link href="/" className="relative flex w-[216px] h-[64px]">
             <Image
               src="/assets/download/google-play.svg"
               fill

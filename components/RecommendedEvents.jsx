@@ -22,12 +22,30 @@ const RecommendedEvents = () => {
   )
 
   return (
-    <div>
+    <section className="mb-32">
+      <div className="mb-12 text-center">
+        <h3 className="pretitle">Recommended for you</h3>
+        <h2 className="h2">Events You Might Like</h2>
+      </div>
       {filterRecommendedEvents.length > 0 
         ? (
-          <Swiper className="w-full h-[500px]">
+          <Swiper 
+            slidesPerView={1}
+            spaceBetween={30}
+            pagination={{
+              dynamicBullets: true,
+              clickable: true
+            }}
+            breakpoints={{
+              640: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 },
+              1310: { slidesPerView: 4 },
+            }}
+            modules={[Pagination]}
+            className="w-full h-[500px]"
+          >
             {filterRecommendedEvents.map((event, index) => (
-              <SwiperSlide key={index}>
+              <SwiperSlide key={index} className="select-none">
                 <Link href="">
                   <Event event={event} />
                 </Link>
@@ -38,7 +56,7 @@ const RecommendedEvents = () => {
           <SkeletonGrid itemCount={4}/>
         ) 
       }
-    </div>
+    </section>
   )
 }
 

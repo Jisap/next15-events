@@ -1,9 +1,9 @@
 "use client"
 
+import DonwloadApp from "@/components/DonwloadApp"
 import EventList from "@/components/Events/EventList"
 import Hero from "@/components/Hero"
 import RecommendedEvents from "@/components/RecommendedEvents"
-import Searchbar from "@/components/Searchbar/searchbar"
 import UpcomingEvents from "@/components/UpcomingEvents"
 import { EventContext } from "@/context/EventContext"
 import { useContext } from "react"
@@ -27,9 +27,7 @@ const { showEventList } = useContext(EventContext);
         <div>
           <div className="container mx-auto">
             <UpcomingEvents />
-            <div>
-              donwnload app section
-            </div>
+            <DonwloadApp />
             <RecommendedEvents />
           </div>
         </div>

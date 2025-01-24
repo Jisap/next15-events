@@ -74,8 +74,9 @@ const EventDetails = async ({ params }) => {
                   </ul>
                 </div>
               </div>
-              <div className='w-full max-w-[460px]'>organizers</div>
             </div>
+            
+            <div className='w-full max-w-[460px]'>organizers</div>
           </div>
         </div>
       </div>

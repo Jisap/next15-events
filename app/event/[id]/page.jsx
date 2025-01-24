@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'next/image';
 import { FaRegCircleCheck } from 'react-icons/fa6'
+import EventSchedule from '@/components/EventSchedule';
 
 const EventDetails = async ({ params }) => {
 
@@ -32,7 +33,7 @@ const EventDetails = async ({ params }) => {
             <div className='flex w-full max-w-[460px] flex-col justify-center gap-8 flex-1 sm:mb-12 xl:mb-0'>
               <div>
                 <h2 className='h2 mb-4'>{event.title}</h2>
-                <div>event schedule</div>
+                <EventSchedule event={event}/>
               </div>
               <div>timer</div>
               <div>custom select</div>
@@ -75,7 +76,7 @@ const EventDetails = async ({ params }) => {
                 </div>
               </div>
             </div>
-            
+
             <div className='w-full max-w-[460px]'>organizers</div>
           </div>
         </div>

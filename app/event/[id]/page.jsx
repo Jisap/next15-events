@@ -29,18 +29,24 @@ const EventDetails = async ({ params }) => {
               />
             </div>
 
-            <div>
-              info
+            <div className='flex w-full max-w-[460px] flex-col justify-center gap-8 flex-1 sm:mb-12 xl:mb-0'>
+              <div>
+                <h2 className='h2 mb-4'>{event.title}</h2>
+                <div>event schedule</div>
+              </div>
+              <div>timer</div>
+              <div>custom select</div>
+              <div>buy tickets btn</div>
             </div>
           </div>
 
-          <div className='bg-green-50/30'>
+          <div className='flex flex-col xl:flex-row gap-8 xl:gap-24'>
             <div>
               <div className='w-full xl:max-w-[670px] flex flex-col gap-8 xl:gap-12'>
                 <p className='text-grey'>{event.description}</p>
                 <div>
                   <h3 className='h3 mb-6'>Requirements for the event</h3>
-                  <ul>
+                  <ul className='flex flex-col gap-4'>
                     <li className='flex gap-3 items-center'>
                       <span className='text-accent text-xl'>
                         <FaRegCircleCheck />
@@ -68,7 +74,7 @@ const EventDetails = async ({ params }) => {
                   </ul>
                 </div>
               </div>
-              <div>organizers</div>
+              <div className='w-full max-w-[460px]'>organizers</div>
             </div>
           </div>
         </div>

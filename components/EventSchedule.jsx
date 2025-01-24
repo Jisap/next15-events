@@ -14,9 +14,23 @@ const EventSchedule = ({event}) => {
   const formattedDate = formatDate(dbDate);
 
   return (
-    <div>
-      <div>
-        {formattedDate}
+    <div className="flex flex-col xl:flex-row gap-4 items-start justify-between">
+      <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2">
+          <BiCalendar className="text-accent text-2xl" />
+          <div>
+            {formattedDate}
+          </div>
+        </div>
+        <div className="flex items-center gap-2">
+          <div>·</div>
+          <p>{event.hour}</p>
+        </div>
+      </div>
+
+      <div className="flex items-center gap-2">
+        <BiMap className="text-accent text-2xl" />
+        <p>{event.location}</p>
       </div>
     </div>
   )

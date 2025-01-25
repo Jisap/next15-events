@@ -3,9 +3,9 @@
 const CustomSelect = ({ event }) => {
 
 
-  
+
   return (
-    <div className='bg-red-300'>
+    <div className=''>
       CustomSelect
     </div>
   )

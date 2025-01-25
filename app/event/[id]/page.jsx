@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { FaRegCircleCheck } from 'react-icons/fa6'
 import EventSchedule from '@/components/EventSchedule';
 import Timer from '@/components/Timer';
+import CustomSelect from '@/components/CustomSelect';
 
 const EventDetails = async ({ params }) => {
 
@@ -37,7 +38,7 @@ const EventDetails = async ({ params }) => {
                 <EventSchedule event={event}/>
               </div>
               <Timer event={ event } />
-              <div>custom select</div>
+              <CustomSelect event={ event } />
               <div>buy tickets btn</div>
             </div>
           </div>

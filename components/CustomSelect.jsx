@@ -7,11 +7,16 @@ import { BiChevronDown } from "react-icons/bi"
 
 const CustomSelect = ({ event }) => {
 
+  if (!event) {
+    return <div>Loading...</div>; // Manejar el caso en que event no esté disponible
+  }
+
   const { seat, showMenu, setShowMenu, handleSeat, initialEvent } = useContext(TicketContext);
 
   useEffect(() => {
-    initialEvent(event);
- 
+    if(event){
+      initialEvent(event);
+    }
   },[])
 
   return (

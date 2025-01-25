@@ -4,6 +4,7 @@ import { FaRegCircleCheck } from 'react-icons/fa6'
 import EventSchedule from '@/components/EventSchedule';
 import Timer from '@/components/Timer';
 import CustomSelect from '@/components/CustomSelect';
+import BuyTicket from '@/components/BuyTicket';
 
 const EventDetails = async ({ params }) => {
 
@@ -39,7 +40,7 @@ const EventDetails = async ({ params }) => {
               </div>
               <Timer event={ event } />
               <CustomSelect event={ event } />
-              <div>buy tickets btn</div>
+              <BuyTicket event={ event } />
             </div>
           </div>
 

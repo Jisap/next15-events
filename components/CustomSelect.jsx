@@ -11,10 +11,14 @@ const CustomSelect = ({ event }) => {
 
   useEffect(() => {
     initialEvent(event);
+ 
   },[])
 
   return (
-    <div className='custom-select bg-secondary w-full h-[64px] rounded-full flex items-center justify-between px-8 relative cursor-pointer select-none'>
+    <div 
+      onClick={() => setShowMenu((prev) => !prev)}
+      className='custom-select bg-secondary w-full h-[64px] rounded-full flex items-center justify-between px-8 relative cursor-pointer select-none'
+    >
       <div className="flex items-center gap-2 w-full">
         <div className="text-xl text-accent">
           <PiChairFill />
@@ -27,6 +31,23 @@ const CustomSelect = ({ event }) => {
           </div>
         </div>
       </div>
+
+      {showMenu && (
+        <ul className="bg-secondary absolute top-[70px] left-0 overflow-hidden w-full rounded-3xl h-[200px]">
+          {event.seats.map((seat, index) => (
+            <li 
+              key={index} 
+              onClick={() => handleSeat(seat.seat, seat.price)}
+              className="cursor-pointer hover:bg-white/5 px-8 py-5"
+            >
+              <div className="flex justify-between">
+                <div className="capitalize">{seat.seat}</div>
+                <div>${seat.price}</div>
+              </div>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   )
 }

@@ -41,7 +41,7 @@ const TicketProvider = ({ children }) => {
     setTotalPrice(seat.price * itemAmount);                     // Se calcula el precio total del ticket
   },[seat.price, itemAmount]);
 
-  const handleSeat = (seat) => {                               // Función que establece el seat y el precio del ticket
+  const handleSeat = (seat, price) => {                               // Función que establece el seat y el precio del ticket
     setSeat({ seat, price })
     setShowMenu(false);
   }

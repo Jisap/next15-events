@@ -1,6 +1,7 @@
+import EventProvider from "../context/EventContext";
+import TicketProvider from "@/context/Ticketcontext";
 import { Poppins, Caveat } from "next/font/google";
 import "./globals.css";
-import EventProvider from "../context/EventContext";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -25,15 +26,17 @@ const caveat = Caveat({
 export default function RootLayout({ children }) {
   return (
     <EventProvider>
-      <html lang="en">
-        <body
-          className={`${poppins.variable} ${caveat.variable} antialiased`}
-        >
-          <Header />
-          {children}
-          <Footer />
-        </body>
-      </html>
+      <TicketProvider>
+        <html lang="en">
+          <body
+            className={`${poppins.variable} ${caveat.variable} antialiased`}
+          >
+            <Header />
+            {children}
+            <Footer />
+          </body>
+        </html>
+      </TicketProvider>
     </EventProvider>
   );
 }

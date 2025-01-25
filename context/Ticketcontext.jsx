@@ -62,7 +62,6 @@ const TicketProvider = ({ children }) => {
     <TicketContext.Provider 
       value={{ 
         initialEvent, 
-        handleClickOutside,
         event,
         seat,
         showMenu,

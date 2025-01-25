@@ -37,13 +37,40 @@ const Timer = ({ event }) => {
   const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
 
   return (
-    <div>
+    <div className="flex flex-wrap gap-4">
       {/* days */}
       <div>
         <div className="text-center border-[3px] border-accent rounded-full w-[100px] h-[100px] flex items-center justify-center">
           <div>
             <div className="text-3xl font-semibold">{days}</div>
-            <div>Days</div>
+            <div className="text-sm uppercase font-medium">Days</div>
+          </div>
+        </div>
+      </div>
+      {/* hours */}
+      <div>
+        <div className="text-center border-[3px] border-accent rounded-full w-[100px] h-[100px] flex items-center justify-center">
+          <div>
+            <div className="text-3xl font-semibold">{hours}</div>
+            <div className="text-sm uppercase font-medium">Hours</div>
+          </div>
+        </div>
+      </div>
+      {/* minutes */}
+      <div>
+        <div className="text-center border-[3px] border-accent rounded-full w-[100px] h-[100px] flex items-center justify-center">
+          <div>
+            <div className="text-3xl font-semibold">{minutes}</div>
+            <div className="text-sm uppercase font-medium">Minutes</div>
+          </div>
+        </div>
+      </div>
+      {/* seconds */}
+      <div>
+        <div className="text-center border-[3px] border-accent rounded-full w-[100px] h-[100px] flex items-center justify-center">
+          <div>
+            <div className="text-3xl font-semibold">{seconds}</div>
+            <div className="text-sm uppercase font-medium">Seconds</div>
           </div>
         </div>
       </div>

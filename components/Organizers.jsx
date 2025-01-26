@@ -27,12 +27,26 @@ const Organizers = ({ event }) => {
             />
             <div>
               <div>
-                <h4>
+                <h4 className='text-lg font-medium'>
                   {organizer.name}
                 </h4>
-                <p>
+                <p className='text-accent'>
                   {organizer.job}
                 </p>
+                <div className='flex gap-4'>
+                  {organizer.social.map((social, index) => {
+                    return (
+                      <Link href={social.path} key={index}>
+                        <Image 
+                          src={social.icon}
+                          width={20}
+                          height={20}
+                          alt="social icon"
+                        />
+                      </Link>
+                    )
+                  })}
+                </div>
               </div>
             </div>
           </div>

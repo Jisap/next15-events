@@ -2,14 +2,14 @@ import { useContext } from "react"
 import { EventContext } from "@/context/EventContext"
 import Event from "./Event"
 import SkeletonGrid from "../SkeletonGrid"
-
+import Link from "next/link"
 
 
 
 const EventList = () => {
 
   const { filteredEvents, isLoading, error } = useContext(EventContext)
-  //console.log(filteredEvents.length);
+
   if(error) return <p>Error: {error}</p>
 
   if(filteredEvents.length === 0 && !isLoading){
@@ -35,9 +35,11 @@ const EventList = () => {
         <div className="grid grid-cols-1 xl:grid-cols-4 gap-[30px] mb-32">
           {filteredEvents.map((event, index) => {
             return (
-              <div key={index}>
-                <Event event={event} /> 
-              </div>
+              <Link href={`/event/${event.id}`} key={index}>
+                <div>
+                  <Event event={event} /> 
+                </div>
+              </Link>
             )
           })}
         </div>

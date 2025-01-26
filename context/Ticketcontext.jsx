@@ -57,6 +57,7 @@ const TicketProvider = ({ children }) => {
     };
     setCheckoutData(ticketData);
   }
+  console.log(checkoutData);
 
   const increaseAmount = () => { // Función que incrementa el número de items en el ticket
     setItemAmount((prevAmount) => prevAmount + 1) 

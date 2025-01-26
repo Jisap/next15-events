@@ -80,7 +80,9 @@ const EventDetails = async ({ params }) => {
               </div>
             </div>
 
-            <div className='w-full max-w-[460px]'>organizers</div>
+            <div className='w-full max-w-[460px]'>
+              
+            </div>
           </div>
         </div>
       </div>

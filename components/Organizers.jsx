@@ -9,7 +9,7 @@ const Organizers = ({ event }) => {
 
 
   return (
-    <div>
+    <div className='bg-secondary py-8 px-6 md:px-12 xl:px-16 w-full flex flex-col gap-8 rounded-2xl'>
       <div>
         <h3 className='h3 mb-4'>
           Organizers
@@ -18,7 +18,7 @@ const Organizers = ({ event }) => {
       </div>
       {event.organizers.map((organizer, index) => {
         return (
-          <div key={index}>
+          <div key={index} className='flex items-center gap-8 border-b last-of-type:border-none border-white/10 pb-8'>
             <Image 
               src={organizer.img_avatar}
               width={72}
@@ -26,7 +26,7 @@ const Organizers = ({ event }) => {
               alt="organizer avatar"
             />
             <div>
-              <div>
+              <div className='flex flex-col gap-2'>
                 <h4 className='text-lg font-medium'>
                   {organizer.name}
                 </h4>

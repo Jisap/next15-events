@@ -41,12 +41,12 @@ const TicketProvider = ({ children }) => {
     setTotalPrice(seat.price * itemAmount);                     // Se calcula el precio total del ticket
   },[seat.price, itemAmount]);
 
-  const handleSeat = (seat, price) => {                               // Función que establece el seat y el precio del ticket
+  const handleSeat = (seat, price) => {                         // Función que establece el seat y el precio del ticket
     setSeat({ seat, price })
     setShowMenu(false);
   }
 
-  const buyNow = (event) => {                                  // Función que establece los datos de la compra
+  const buyNow = (event) => {                                   // Función que establece los datos de la compra
     const ticketData = {
       eventId: event.id,
       evenName: event.title,
@@ -57,6 +57,15 @@ const TicketProvider = ({ children }) => {
     };
     setCheckoutData(ticketData);
   }
+
+  const increaseAmount = () => { // Función que incrementa el número de items en el ticket
+    setItemAmount((prevAmount) => prevAmount + 1) 
+  }
+
+  const decreaseAmount = () => { // Función que decrementa el número de items en el ticket
+    setItemAmount((prevAmount) => prevAmount > 1 ? prevAmount - 1 : 1) 
+  }
+                                 
 
   return (
     <TicketContext.Provider 
@@ -71,7 +80,9 @@ const TicketProvider = ({ children }) => {
         handleSeat,
         setSeat,
         setShowMenu,
-        buyNow,  
+        buyNow, 
+        increaseAmount,
+        decreaseAmount,
       }}>
       {children}
     </TicketContext.Provider>

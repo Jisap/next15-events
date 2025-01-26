@@ -11,7 +11,7 @@ const BuyTicket = ({ event }) => {
     return <div>Loading...</div>; // Manejar el caso en que event no esté disponible
   }
 
-  const { buyNow, itemAmount, totalPrice } = useContext(TicketContext);
+  const { buyNow, itemAmount, totalPrice, increaseAmount, decreaseAmount } = useContext(TicketContext);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleBuyNow = () => {
@@ -23,13 +23,19 @@ const BuyTicket = ({ event }) => {
   }
 
   return (
-    <div>
+    <div className='flex flex-col md:flex-row gap-8 md:gap-4'>
       <div className='w-[200px] md:w-[300px] flex items-center justify-between bg-secondary p-2 rounded-full'>
-        <div className='cursor-pointer bg-accent w-[48px] h-[48px] flex items-center justify-center select-none rounded-full'>
+        <div 
+          onClick={() => decreaseAmount()}
+          className='cursor-pointer bg-accent w-[48px] h-[48px] flex items-center justify-center select-none rounded-full'
+        >
           <BiMinus className='text-lg'/>
         </div>
         <div>{itemAmount}</div>
-        <div className='cursor-pointer bg-accent w-[48px] h-[48px] flex items-center justify-center select-none rounded-full'>
+        <div 
+          onClick={() => increaseAmount()}
+          className='cursor-pointer bg-accent w-[48px] h-[48px] flex items-center justify-center select-none rounded-full'
+        >
           <BiPlus className='text-lg'/>
         </div>
       </div>
